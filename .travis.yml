@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jahodx/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run jahodx/docker-react npm run test -- --coverage
+  
